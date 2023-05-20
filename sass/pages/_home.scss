@@ -1,0 +1,112 @@
+@use '../abstracts';
+
+.section-about {
+  background-color: abstracts.$variable-color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+
+  @include abstracts.mixin-respond(tab-port) {
+    padding: 20rem 0;
+  }
+}
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(abstracts.$variable-color-primary-light, 0.801),
+      rgba(abstracts.$variable-color-primary-dark, 0.808)
+    ),
+    url('../img/nat-4.jpg');
+  background-size: cover;
+
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  & > * {
+    transform: skewY(7deg);
+  }
+
+  @include abstracts.mixin-respond(tab-port) {
+    padding: 10rem 0;
+  }
+}
+
+.section-tours {
+  background-color: abstracts.$variable-color-grey-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -10rem;
+
+  @include abstracts.mixin-respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
+}
+
+.section-stories {
+  padding: 15rem 0;
+  // background-color: abstracts.$variable-color-grey-light-1;
+  position: relative;
+
+  @include abstracts.mixin-respond(tab-port) {
+    padding: 10rem 0;
+  }
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    abstracts.$variable-color-primary-light,
+    abstracts.$variable-color-primary-dark
+  );
+  @include abstracts.mixin-respond(tab-port) {
+    padding: 10rem 0;
+  }
+}
+
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba(abstracts.$variable-color-white, 0.9) 0%,
+      rgba(abstracts.$variable-color-white, 0.9) 50%,
+      transparent 50.1%
+    ),
+    url(../img/nat-10.jpg);
+  background-size: 100%;
+  border-radius: 0.3rem;
+  box-shadow: 0 1.5rem 4rem rgba(abstracts.$variable-color-black, 0.2);
+  // height: 50rem;
+
+  @include abstracts.mixin-respond(tab-land) {
+    background-image: linear-gradient(
+        105deg,
+        rgba(abstracts.$variable-color-white, 0.9) 0%,
+        rgba(abstracts.$variable-color-white, 0.9) 65%,
+        transparent 65.1%
+      ),
+      url(../img/nat-10.jpg);
+    background-size: cover;
+  }
+
+  @include abstracts.mixin-respond(tab-port) {
+    background-image: linear-gradient(
+        to right,
+        rgba(abstracts.$variable-color-white, 0.9) 0%,
+        rgba(abstracts.$variable-color-white, 0.9) 100%
+      ),
+      url(../img/nat-10.jpg);
+    background-size: cover;
+  }
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+
+    @include abstracts.mixin-respond(tab-land) {
+      width: 65%;
+    }
+    @include abstracts.mixin-respond(tab-port) {
+      width: 100%;
+    }
+  }
+}

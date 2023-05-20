@@ -1,0 +1,99 @@
+@use '../abstracts';
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    z-index: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    // transition: transform 0.5s, box-shadow 0.5s;
+    position: relative;
+    font-size: abstracts.$variable-default-font-size;
+
+    //Additionhal CSS for <button> element
+    border: none;
+    cursor: pointer;
+  }
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.5rem 0.2rem rgba(abstracts.$variable-color-black, 0.2);
+
+    &::after {
+      transform: scale(1.4, 1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-0.1rem);
+    /* box-shadow: none; */
+    box-shadow: 0 0.3rem 0.1rem rgba(abstracts.$variable-color-black, 0.12);
+  }
+
+  &--white {
+    background-color: abstracts.$variable-color-white;
+    color: abstracts.$variable-color-grey-dark;
+
+    &::after {
+      background-color: abstracts.$variable-color-white;
+    }
+  }
+  &--green {
+    background-color: abstracts.$variable-color-primary;
+    color: abstracts.$variable-color-white;
+
+    &::after {
+      background-color: abstracts.$variable-color-primary;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: transform 0.4s, opacity 0.4s;
+    // transition: transform 6.4s, opacity 6.4s;
+  }
+
+  &--animated {
+    animation: 0.5s ease-out 0.45s backwards moveInBottom;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: abstracts.$variable-default-font-size;
+    color: abstracts.$variable-color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0.1rem solid abstracts.$variable-color-primary;
+    padding: 0.3rem;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s,
+      color 0.2s;
+  }
+  &:hover {
+    background-color: abstracts.$variable-color-primary;
+    color: abstracts.$variable-color-white;
+    box-shadow: 0 1rem 2rem rgba(abstracts.$variable-color-black, 0.15);
+    transform: translate(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba(abstracts.$variable-color-black, 0.15);
+    transform: translate(0);
+  }
+}

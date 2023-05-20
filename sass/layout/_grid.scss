@@ -1,0 +1,85 @@
+@use '../abstracts';
+
+.container {
+  // flex-direction: column;
+  // gap: abstracts.$variable-gutter-vertical;
+  // display: flex;
+  margin: 0 auto;
+  margin-bottom: abstracts.$variable-gutter-vertical;
+  max-width: abstracts.$variable-grid-width;
+  // background-color: #eee;
+  // text-align: center;
+  @include abstracts.mixin-respond(tab-port) {
+    margin-bottom: abstracts.$variable-gutter-vertical-small;
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+}
+
+// .row {
+// }
+
+// .col {
+//   // background-color: red;
+// }
+
+.col-1-of-2xx2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: abstracts.$variable-gutter-horizontal;
+  @include abstracts.mixin-respond(tab-port) {
+    grid-template-columns: 1fr;
+    column-gap: initial;
+    row-gap: abstracts.$variable-gutter-vertical-small;
+  }
+}
+.col-1-of-3xx3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: abstracts.$variable-gutter-horizontal;
+  @include abstracts.mixin-respond(tab-port) {
+    grid-template-columns: 1fr;
+    column-gap: initial;
+    row-gap: abstracts.$variable-gutter-vertical-small;
+  }
+}
+.col-1-of-3pluscol-2-of-3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: abstracts.$variable-gutter-horizontal;
+  @include abstracts.mixin-respond(tab-port) {
+    grid-template-columns: 1fr;
+    column-gap: initial;
+    row-gap: abstracts.$variable-gutter-vertical-small;
+  }
+}
+.col-1-of-4xx4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: abstracts.$variable-gutter-horizontal;
+  @include abstracts.mixin-respond(tab-port) {
+    grid-template-columns: 1fr;
+    column-gap: initial;
+    row-gap: abstracts.$variable-gutter-vertical-small;
+  }
+}
+.col-1-of-4xx2pluscol-2-of-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 2fr;
+  column-gap: abstracts.$variable-gutter-horizontal;
+  @include abstracts.mixin-respond(tab-port) {
+    grid-template-columns: 1fr;
+    column-gap: initial;
+    row-gap: abstracts.$variable-gutter-vertical-small;
+  }
+}
+.col-1-of-4pluscol-3-of-4 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap: abstracts.$variable-gutter-horizontal;
+  @include abstracts.mixin-respond(tab-port) {
+    grid-template-columns: 1fr;
+    column-gap: initial;
+    row-gap: abstracts.$variable-gutter-vertical-small;
+  }
+}

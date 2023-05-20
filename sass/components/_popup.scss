@@ -1,0 +1,94 @@
+@use '../abstracts';
+
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(abstracts.$variable-color-black, 0.8);
+  z-index: 9999;
+  // display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  @supports (-webkit-backdrop-filter: blur(0.3rem))
+    or (backdrop-filter: blur(0.3rem)) {
+    -webkit-backdrop-filter: blur(0.3rem);
+    backdrop-filter: blur(0.3rem);
+    background-color: rgba(abstracts.$variable-color-black, 0.3);
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: abstracts.$variable-color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+
+    &:hover,
+    &:active {
+      color: abstracts.$variable-color-primary;
+    }
+  }
+
+  &__content {
+    @include abstracts.mixin-absCenter;
+    width: 75%;
+    // height: 50rem;
+    background-color: abstracts.$variable-color-white;
+    box-shadow: 0 2rem 4rem rgba(abstracts.$variable-color-black, 0.2);
+    border-radius: 0.4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    overflow: hidden;
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0;
+    transition: transform 0.4s 0.2s, opacity 0.4s 0.2s;
+    // transition: transform 0.2s 2.4s, opacity 0.2s 2.4s;
+  }
+
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__right {
+    align-self: center;
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    // flex-grow: 1;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    column-count: 2;
+    column-gap: 4rem; //1em=14px;
+    column-rule: 1px solid abstracts.$variable-color-grey-light-3;
+    hyphens: auto;
+  }
+}
